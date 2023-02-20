@@ -1,5 +1,6 @@
 # CS50_AI
-CS50’s Introduction to Artificial Intelligence with Python
+CS50’s Introduction to Artificial Intelligence with Python, Harvard University
+
 
 [Course Homepage](https://cs50.harvard.edu/ai/2020/)
 
