@@ -26,9 +26,13 @@ CS50’s Introduction to Artificial Intelligence with Python, Harvard University
   - [ ] [Shopping](https://cs50.harvard.edu/ai/2020/projects/4/shopping/)
   - [ ] [Nim](https://cs50.harvard.edu/ai/2020/projects/4/nim/)
 - [ ] [Project5](https://cs50.harvard.edu/ai/2020/projects/5/)
-- [ ] [Project6](https://cs50.harvard.edu/ai/2020/projects/6/)
----
 
+  - [ ] [Traffic](https://cs50.harvard.edu/ai/2020/projects/5/traffic/)
+- [ ] [Project6](https://cs50.harvard.edu/ai/2020/projects/6/)
+
+  - [ ] [Parser](https://cs50.harvard.edu/ai/2020/projects/6/parser/)
+  - [ ] [Questions](https://cs50.harvard.edu/ai/2020/projects/6/questions/)
+---
 
 [Course Homepage](https://cs50.harvard.edu/ai/2020/)
 
