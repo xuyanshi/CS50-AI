@@ -5,11 +5,11 @@ CS50’s Introduction to Artificial Intelligence with Python, Harvard University
 
 - End Date: 
 
-
+The [Online Judge](https://cs50.me/cs50ai) will take at least 3 weeks to evaluate our submissions, so I don't know if my code is *bug-free*.
 
 - [ ] [Project0](https://cs50.harvard.edu/ai/2020/projects/0/)
 
-  - [ ] [Degrees](https://cs50.harvard.edu/ai/2020/projects/0/degrees/)
+  - [x] [Degrees](https://cs50.harvard.edu/ai/2020/projects/0/degrees/)
   - [ ] [Tic-Tac-Toe](https://cs50.harvard.edu/ai/2020/projects/0/tictactoe/)
 - [ ] [Project1](https://cs50.harvard.edu/ai/2020/projects/1/)
 
@@ -40,7 +40,7 @@ CS50’s Introduction to Artificial Intelligence with Python, Harvard University
 
 [edX Link](https://www.edx.org/course/cs50s-introduction-to-artificial-intelligence-with-python)
 
-[My Submission Link](https://github.com/me50/xuyanshi) It needs 3 weeks or more to judge our submissions...
+[My Submission Link](https://github.com/me50/xuyanshi) 
 
 [Reference (CSDIY)](https://github.com/PKUFlyingPig/cs50_ai)
 
