@@ -91,6 +91,9 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
+    print("names: ", names)
+    print("people: ", people)
+    print("movies: ", movies)
 
     ans = []
     if not ans:
