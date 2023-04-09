@@ -40,7 +40,7 @@ CS50’s Introduction to Artificial Intelligence with Python, Harvard University
 
 [edX Link](https://www.edx.org/course/cs50s-introduction-to-artificial-intelligence-with-python)
 
-[My Submission Link](https://github.com/me50/xuyanshi) It needs 3 weeks or more to judge our submissions
+[My Submission Link](https://github.com/me50/xuyanshi) It needs 3 weeks or more to judge our submissions...
 
 [Reference (CSDIY)](https://github.com/PKUFlyingPig/cs50_ai)
 
