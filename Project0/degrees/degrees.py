@@ -91,14 +91,34 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
-    print("names: ", names)
-    print("people: ", people)
-    print("movies: ", movies)
+    source_id = person_id_for_name(source)
+    target_id = person_id_for_name(target)
+    start = Node(state=(None, source_id), parent=None, action=None)
+    frontier = QueueFrontier()
+    frontier.add(start)
 
-    ans = []
-    if not ans:
-        return None
-    return ans
+    # explored_movies = set()
+    explored_people = set()
+
+    while True:
+        if frontier.empty():
+            return None
+
+        node = frontier.remove()
+
+        if node.state[1] == target_id:
+            ans = []
+            while node.parent is not None:
+                ans.append(node.state)
+            return ans[::-1]
+
+        # explored_movies.add(node.state[0])
+        explored_people.add(node.state[1])
+
+        for movie, person in neighbors_for_person(node.state[1]):
+            if not frontier.contains_state((movie, person)) and person not in explored_people:
+                child = Node((movie, person), node, None)
+                frontier.add(child)
 
 
 def person_id_for_name(name):
