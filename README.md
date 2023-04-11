@@ -1,9 +1,7 @@
 # CS50-AI
 CS50’s Introduction to Artificial Intelligence with Python, Harvard University
 
-- Start Date: TODO
 
-- End Date: 
 
 The [Online Judge](https://cs50.me/cs50ai) will take at least 3 weeks to evaluate our submissions, so I don't know if my code is *bug-free*.
 
