@@ -71,7 +71,60 @@ def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
     """
-    raise NotImplementedError
+    # horizontal
+    for i in range(3):
+        x = o = 0
+        for j in range(3):
+            if board[i][j] == X:
+                x += 1
+            elif board[i][j] == O:
+                o += 1
+        if x == 3:
+            return 1
+        elif o == 3:
+            return -1
+
+    # vertical
+    for j in range(3):
+        x = o = 0
+        for i in range(3):
+            if board[i][j] == X:
+                x += 1
+            elif board[i][j] == O:
+                o += 1
+        if x == 3:
+            return 1
+        elif o == 3:
+            return -1
+
+    # diagonal: from northwest to southeast
+    x = o = 0
+    for i in range(3):
+        j = i
+        if board[i][j] == X:
+            x += 1
+        elif board[i][j] == O:
+            o += 1
+    if x == 3:
+        return 1
+    elif o == 3:
+        return -1
+
+    # diagonal: from northeast to southwest
+    x = o = 0
+    for i in range(3):
+        j = 2 - i
+        if board[i][j] == X:
+            x += 1
+        elif board[i][j] == O:
+            o += 1
+    if x == 3:
+        return 1
+    elif o == 3:
+        return -1
+
+    # otherwise
+    return 0
 
 
 def minimax(board):
