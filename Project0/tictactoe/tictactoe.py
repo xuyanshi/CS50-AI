@@ -48,6 +48,8 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
+    if board[action[0]][action[1]] is not None:
+        raise ValueError("action is not a valid action for the board")
     now_player = player(board)
     new_board = []
     for i, j in itertools.product(range(3), range(3)):
