@@ -38,15 +38,10 @@ def actions(board):
     Returns set of all possible actions (i, j) available on the board.
     """
     actions_set = set()
-    # now_player = player(board)
     for i, j in itertools.product(range(3), range(3)):
         if board[i][j] is None:
             actions_set.add((i, j))
-            # new_board = []
-            # for ii, jj in itertools.product(range(3), range(3)):
-            #     new_board[ii][jj] = board[ii][jj]
-            # new_board[i][j] = now_player
-            # actions_set.add(new_board)
+
     return actions_set
 
 
@@ -54,7 +49,12 @@ def result(board, action):
     """
     Returns the board that results from making move (i, j) on the board.
     """
-    raise NotImplementedError
+    now_player = player(board)
+    new_board = []
+    for i, j in itertools.product(range(3), range(3)):
+        new_board[i][j] = board[i][j]
+    new_board[action[0]][action[1]] = now_player
+    return new_board
 
 
 def winner(board):
