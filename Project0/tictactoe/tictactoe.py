@@ -67,6 +67,7 @@ def winner(board):
         return X
     elif score == -1:
         return O
+    return None
 
 
 def terminal(board):
