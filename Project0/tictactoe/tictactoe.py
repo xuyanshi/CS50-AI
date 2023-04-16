@@ -24,12 +24,11 @@ def player(board):
     Returns player who has the next turn on a board.
     """
     x = o = 0
-    for i in range(3):
-        for j in range(3):
-            if board[i][j] == X:
-                x += 1
-            elif board[i][j] == O:
-                o += 1
+    for i, j in itertools.product(range(3), range(3)):
+        if board[i][j] == X:
+            x += 1
+        elif board[i][j] == O:
+            o += 1
     return O if o < x else X
 
 
