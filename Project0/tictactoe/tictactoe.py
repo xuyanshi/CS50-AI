@@ -146,11 +146,12 @@ def minimax(board):
     if terminal(board):
         return None
     optimal_action = (-1, -1)
-    if player(board) == X:
-        # max
+    acts = actions(board)
+    if player(board) == X:  # X for max
+
         print(0)
-    else:
-        # min
+    else:  # O for min
+
         print(0)
 
     return optimal_action
