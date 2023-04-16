@@ -148,9 +148,10 @@ def minimax(board):
     optimal_action = (-1, -1)
     if player(board) == X:
         # max
-
+        print(0)
     else:
         # min
+        print(0)
 
     return optimal_action
 
