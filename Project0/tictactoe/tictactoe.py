@@ -2,6 +2,7 @@
 Tic Tac Toe Player
 """
 
+import itertools
 import math
 
 X = "X"
@@ -36,7 +37,16 @@ def actions(board):
     """
     Returns set of all possible actions (i, j) available on the board.
     """
-    raise NotImplementedError
+    actions_set = set()
+    now_player = player(board)
+    for i, j in itertools.product(range(3), range(3)):
+        if board[i][j] is None:
+            new_board = []
+            for ii, jj in itertools.product(range(3), range(3)):
+                new_board[ii][jj] = board[ii][jj]
+            new_board[i][j] = now_player
+            actions_set.add(new_board)
+    return actions_set
 
 
 def result(board, action):
