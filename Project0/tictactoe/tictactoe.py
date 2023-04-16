@@ -1,7 +1,7 @@
 """
 Tic Tac Toe Player
 """
-
+import copy
 import itertools
 import math
 
@@ -51,9 +51,7 @@ def result(board, action):
     if board[action[0]][action[1]] is not None:
         raise ValueError("action is not a valid action for the board")
     now_player = player(board)
-    new_board = []
-    for i, j in itertools.product(range(3), range(3)):
-        new_board[i][j] = board[i][j]
+    new_board = copy.deepcopy(board)
     new_board[action[0]][action[1]] = now_player
     return new_board
 
