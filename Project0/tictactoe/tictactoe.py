@@ -161,7 +161,7 @@ def minimax(board):
 def max_value(board):
     if terminal(board):
         return utility(board)
-    v = -10 ** 10  # -inf
+    v = -10 ** 10  # -inf, -2 is enough for this problem
     for action in actions(board):
         v = max(v, min_value(result(board, action)))
     return v
@@ -171,7 +171,7 @@ def max_value(board):
 def min_value(board):
     if terminal(board):
         return utility(board)
-    v = 10 ** 10  # inf
+    v = 10 ** 10  # inf, 2 is enough for this problem
     for action in actions(board):
         v = min(v, max_value(result(board, action)))
     return v
