@@ -29,9 +29,7 @@ def player(board):
                 x += 1
             elif board[i][j] == O:
                 o += 1
-    if o < x:
-        return O
-    return X
+    return O if o < x else X
 
 
 def actions(board):
