@@ -72,7 +72,7 @@ def terminal(board):
     Returns True if game is over, False otherwise.
     """
     score = utility(board)
-    return score == 1 or score == -1
+    return score in [1, -1]
 
 
 def utility(board):
