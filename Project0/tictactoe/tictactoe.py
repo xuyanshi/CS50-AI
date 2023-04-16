@@ -143,7 +143,6 @@ def minimax(board):
     """
     if terminal(board):
         return None
-    # optimal_action = (-1, -1)
     acts = list(actions(board))
     vals = []
     if player(board) == X:  # X for max
