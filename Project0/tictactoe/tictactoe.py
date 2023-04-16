@@ -146,5 +146,30 @@ def minimax(board):
     if terminal(board):
         return None
     optimal_action = (-1, -1)
+    if player(board) == X:
+        # max
+
+    else:
+        # min
 
     return optimal_action
+
+
+# from slides
+def max_value(board):
+    if terminal(board):
+        return utility(board)
+    v = -10 ** 10  # -inf
+    for action in actions(board):
+        v = max(v, min_value(result(board, action)))
+    return v
+
+
+# from slides
+def min_value(board):
+    if terminal(board):
+        return utility(board)
+    v = 10 ** 10  # inf
+    for action in actions(board):
+        v = min(v, max_value(result(board, action)))
+    return v
