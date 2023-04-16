@@ -146,19 +146,17 @@ def minimax(board):
     if terminal(board):
         return None
     # optimal_action = (-1, -1)
-    acts = actions(board)
+    acts = list(actions(board))
     vals = []
     if player(board) == X:  # X for max
-        for action in acts:
-            vals.append(min_value(result(board, action)))
+        vals.extend(min_value(result(board, action)) for action in acts)
         max_idx, max_val = 0, vals[0]
         for i, val in enumerate(vals):
             if val > max_val:
                 max_idx, max_val = i, val
         return acts[max_idx]
     else:  # O for min
-        for action in acts:
-            vals.append(max_value(result(board, action)))
+        vals.extend(max_value(result(board, action)) for action in acts)
         min_idx, min_val = 0, vals[0]
         for i, val in enumerate(vals):
             if val < min_val:
