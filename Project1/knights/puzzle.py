@@ -17,7 +17,10 @@ C_basis = Or(And(CKnight, Not(CKnave)), And(Not(CKnight), CKnave))
 # A says "I am both a knight and a knave."
 knowledge0 = And(
     A_basis,
-    
+    Or(
+        And(AKnight, AKnight, AKnave),
+        And(AKnave, Not(And(AKnight, AKnave)))
+    )
 )
 
 # Puzzle 1
