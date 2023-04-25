@@ -11,7 +11,7 @@ The [Online Judge](https://cs50.me/cs50ai) will take about 3 weeks to evaluate o
   - [x] [Tic-Tac-Toe](https://cs50.harvard.edu/ai/2020/projects/0/tictactoe/)
 - [ ] [Project1](https://cs50.harvard.edu/ai/2020/projects/1/)
 
-  - [ ] [Knights](https://cs50.harvard.edu/ai/2020/projects/1/knights/)
+  - [x] [Knights](https://cs50.harvard.edu/ai/2020/projects/1/knights/)
   - [ ] [Minesweeper](https://cs50.harvard.edu/ai/2020/projects/1/minesweeper/)
 - [ ] [Project2](https://cs50.harvard.edu/ai/2020/projects/2/)
 
