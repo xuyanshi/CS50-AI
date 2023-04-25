@@ -91,6 +91,9 @@ c_said = Or(
 )
 
 knowledge3 = And(
+    A_basis,
+    B_basis,
+    C_basis,
     b_said,
     b_said2,
     c_said
