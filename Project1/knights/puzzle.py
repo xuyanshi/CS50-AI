@@ -9,10 +9,15 @@ BKnave = Symbol("B is a Knave")
 CKnight = Symbol("C is a Knight")
 CKnave = Symbol("C is a Knave")
 
+A_basis = Or(And(AKnight, Not(AKnave)), And(Not(AKnight), AKnave))
+B_basis = Or(And(BKnight, Not(BKnave)), And(Not(BKnight), BKnave))
+C_basis = Or(And(CKnight, Not(CKnave)), And(Not(CKnight), CKnave))
+
 # Puzzle 0
 # A says "I am both a knight and a knave."
 knowledge0 = And(
-    # TODO
+    A_basis,
+    
 )
 
 # Puzzle 1
