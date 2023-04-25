@@ -68,13 +68,16 @@ knowledge2 = And(
 # B says "C is a knave."
 # C says "A is a knight."
 
-a_said = Or(
-    AKnight,
-    AKnave
-)
 
 b_said = Or(
-
+    And(BKnight, Or(
+        And(AKnight, AKnave),
+        And(AKnave, Not(AKnave))
+    )),
+    And(BKnave, Not(Or(
+        And(AKnight, AKnave),
+        And(AKnave, Not(AKnave))
+    )))
 )
 
 b_said2 = Or(
