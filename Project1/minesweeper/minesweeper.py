@@ -195,12 +195,32 @@ class MinesweeperAI:
         self.mark_safe(cell)
         # 3) add a new sentence to the AI's knowledge base
         #    based on the value of `cell` and `count`
-        sentence = Sentence(cell, count)
+        x, y = cell
+        neighbors = set()
+        for i in [-1, 0, 1]:
+            for j in [-1, 0, 1]:
+                new_x, new_y = x + i, y + j
+                if (i == 0 and j == 0) or new_x < 0 or new_y < 0 or new_x >= self.height or new_y >= self.width:
+                    continue
+                neighbors.add((new_x, new_y))
+        neighbors -= self.safes
+        neighbors_mines_cnt = len(neighbors & self.mines)
+        neighbors -= self.mines
+        self.knowledge.append(Sentence(neighbors, count - neighbors_mines_cnt))
+
         # 4) mark any additional cells as safe or as mines
         #    if it can be concluded based on the AI's knowledge base
+        def conclude():
+            return False
 
         # 5) add any new sentences to the AI's knowledge base
         #    if they can be inferred from existing knowledge
+        def infer():
+            return False
+
+        while True:
+            if conclude() == 0 and infer() == 0:
+                break
 
     def make_safe_move(self):
         """
@@ -223,7 +243,7 @@ class MinesweeperAI:
             1) have not already been chosen, and
             2) are not known to be mines
         """
-        
+
         # This solution may cause infinite loop.
         # i = random.randrange(self.height)
         # j = random.randrange(self.width)
