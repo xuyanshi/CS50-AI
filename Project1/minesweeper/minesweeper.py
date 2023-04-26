@@ -229,18 +229,20 @@ class MinesweeperAI:
                     self.mark_safe(c)
             return without_new_conclude
 
+        while True and not conclude():
+            pass
+
         # 5) add any new sentences to the AI's knowledge base
         #    if they can be inferred from existing knowledge
         def infer():
             without_new_infer = True
             new_knowledge = []
-            
+
             self.knowledge.extend(new_knowledge)
             return without_new_infer
 
-        while True:
-            if conclude() and infer():
-                break
+        while True and not infer():
+            pass
 
     def make_safe_move(self):
         """
@@ -252,9 +254,7 @@ class MinesweeperAI:
         and self.moves_made, but should not modify any of those values.
         """
         safe_moves = self.safes - self.moves_made
-        if not safe_moves:
-            return None
-        return list(safe_moves)[0]
+        return list(safe_moves)[0] if safe_moves else None
 
     def make_random_move(self):
         """
@@ -278,6 +278,4 @@ class MinesweeperAI:
                 possible_moves.add((i, j))
         possible_moves -= self.moves_made
         possible_moves -= self.mines
-        if not possible_moves:
-            return None
-        return list(possible_moves)[0]
+        return list(possible_moves)[0] if possible_moves else None
