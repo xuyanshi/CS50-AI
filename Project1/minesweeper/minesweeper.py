@@ -193,9 +193,14 @@ class MinesweeperAI:
         self.moves_made.add(cell)
         # 2) mark the cell as safe
         self.mark_safe(cell)
-
+        # 3) add a new sentence to the AI's knowledge base
+        #    based on the value of `cell` and `count`
         sentence = Sentence(cell, count)
-        raise NotImplementedError
+        # 4) mark any additional cells as safe or as mines
+        #    if it can be concluded based on the AI's knowledge base
+
+        # 5) add any new sentences to the AI's knowledge base
+        #    if they can be inferred from existing knowledge
 
     def make_safe_move(self):
         """
