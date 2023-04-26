@@ -189,7 +189,9 @@ class MinesweeperAI:
             5) add any new sentences to the AI's knowledge base
                if they can be inferred from existing knowledge
         """
+        # 1) mark the cell as a move that has been made
         self.moves_made.add(cell)
+        # 2) mark the cell as safe
         self.mark_safe(cell)
 
         sentence = Sentence(cell, count)
