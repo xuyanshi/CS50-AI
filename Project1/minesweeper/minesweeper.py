@@ -215,7 +215,9 @@ class MinesweeperAI:
             mine_cells = []
             safe_cells = []
             for sentence in self.knowledge:
-                
+                if sentence.known_mines():
+                    without_new_conclude = False
+                    mine_cells.extend(sentence.known_mines())
             return without_new_conclude
 
         # 5) add any new sentences to the AI's knowledge base
