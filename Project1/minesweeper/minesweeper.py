@@ -223,12 +223,15 @@ class MinesweeperAI:
             1) have not already been chosen, and
             2) are not known to be mines
         """
+        
+        # This solution may cause infinite loop.
         # i = random.randrange(self.height)
         # j = random.randrange(self.width)
         # while (i, j) in self.moves_made or (i, j) in self.mines:
         #     i = random.randrange(self.height)
         #     j = random.randrange(self.width)
         # return i, j
+
         possible_moves = set()
         for i in range(self.height):
             for j in range(self.width):
