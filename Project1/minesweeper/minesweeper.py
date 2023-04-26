@@ -211,15 +211,17 @@ class MinesweeperAI:
         # 4) mark any additional cells as safe or as mines
         #    if it can be concluded based on the AI's knowledge base
         def conclude():
-            return False
+            without_new_conclude = True
+            return without_new_conclude
 
         # 5) add any new sentences to the AI's knowledge base
         #    if they can be inferred from existing knowledge
         def infer():
-            return False
+            without_new_infer = True
+            return without_new_infer
 
         while True:
-            if conclude() == 0 and infer() == 0:
+            if conclude() and infer():
                 break
 
     def make_safe_move(self):
