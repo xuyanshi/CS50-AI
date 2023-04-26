@@ -221,6 +221,12 @@ class MinesweeperAI:
                 if sentence.known_safes():
                     without_new_conclude = False
                     safe_cells.extend(sentence.known_safes())
+            if mine_cells:
+                for c in mine_cells:
+                    self.mark_mine(c)
+            if safe_cells:
+                for c in safe_cells:
+                    self.mark_safe(c)
             return without_new_conclude
 
         # 5) add any new sentences to the AI's knowledge base
