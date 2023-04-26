@@ -106,7 +106,7 @@ class Sentence():
         Returns the set of all cells in self.cells known to be mines.
         """
         if len(self.cells) == self.count:
-            return self.cells  
+            return self.cells
         else:
             return set()
 
@@ -175,7 +175,7 @@ class MinesweeperAI():
         self.safes.add(cell)
         for sentence in self.knowledge:
             sentence.mark_safe(cell)
-    
+
     def conclude(self):
         """
         return the number of new clues that can be directly concluded 
@@ -199,7 +199,7 @@ class MinesweeperAI():
             for cell in safe_cells:
                 self.mark_safe(cell)
         return new_clue
-    
+
     def infer(self):
         """
         return the number of new clues that can be inferred from 
@@ -211,7 +211,7 @@ class MinesweeperAI():
         for i in range(len(self.knowledge)):
             for j in range(i + 1, len(self.knowledge)):
                 if self.knowledge[i].cells < self.knowledge[j].cells:
-                    tmp = Sentence(self.knowledge[j].cells - self.knowledge[i].cells, 
+                    tmp = Sentence(self.knowledge[j].cells - self.knowledge[i].cells,
                                    self.knowledge[j].count - self.knowledge[i].count)
                     flag = True
                     for s in self.knowledge:
@@ -223,7 +223,7 @@ class MinesweeperAI():
                     new_clue += 1
                     new_knowledge.append(tmp)
                 elif self.knowledge[j].cells < self.knowledge[i].cells:
-                    tmp = Sentence(self.knowledge[i].cells - self.knowledge[j].cells, 
+                    tmp = Sentence(self.knowledge[i].cells - self.knowledge[j].cells,
                                    self.knowledge[i].count - self.knowledge[j].count)
                     flag = True
                     for s in self.knowledge:
@@ -236,7 +236,6 @@ class MinesweeperAI():
                     new_knowledge.append(tmp)
         self.knowledge += new_knowledge
         return new_clue
-
 
     def add_knowledge(self, cell, count):
         """
@@ -259,7 +258,7 @@ class MinesweeperAI():
         neighbors = set()
         for i in [-1, 0, 1]:
             for j in [-1, 0, 1]:
-                if x+i < 0 or x+i >=self.height or y+j < 0 or y+j >= self.width or (i == j == 0):
+                if x+i < 0 or x+i >= self.height or y+j < 0 or y+j >= self.width or (i == j == 0):
                     continue
                 neighbors.add((x + i, y + j))
         neighbors = neighbors - self.safes
@@ -268,7 +267,7 @@ class MinesweeperAI():
         self.knowledge.append(Sentence(neighbors, count - neighbor_mines))
         while 1:
             new_conclude = self.conclude()
-            new_infer = self.infer()       
+            new_infer = self.infer()
             if new_conclude == new_infer == 0:
                 break
 
@@ -285,7 +284,6 @@ class MinesweeperAI():
         if len(safe_moves) == 0:
             return None
         return list(safe_moves)[0]
-
 
     def make_random_move(self):
         """

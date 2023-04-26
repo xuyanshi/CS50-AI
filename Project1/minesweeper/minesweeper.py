@@ -212,6 +212,10 @@ class MinesweeperAI:
         #    if it can be concluded based on the AI's knowledge base
         def conclude():
             without_new_conclude = True
+            mine_cells = []
+            safe_cells = []
+            for sentence in self.knowledge:
+                
             return without_new_conclude
 
         # 5) add any new sentences to the AI's knowledge base
