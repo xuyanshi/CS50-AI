@@ -2,7 +2,7 @@ import itertools
 import random
 
 
-class Minesweeper():
+class Minesweeper:
     """
     Minesweeper game representation
     """
@@ -128,7 +128,7 @@ class Sentence():
         raise NotImplementedError
 
 
-class MinesweeperAI():
+class MinesweeperAI:
     """
     Minesweeper game player
     """
