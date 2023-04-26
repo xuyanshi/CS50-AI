@@ -240,7 +240,20 @@ class MinesweeperAI:
             n = len(self.knowledge)
             for i in range(n - 1):
                 for j in range(i + 1, n):
-                    pass
+                    if self.knowledge[i].cells < self.knowledge[j].cells:
+                        sentence = Sentence(self.knowledge[j].cells - self.knowledge[i].cells,
+                                            self.knowledge[j].count - self.knowledge[i].count)
+                        if sentence in self.knowledge:
+                            continue
+                        without_new_infer = False
+                        new_knowledge.append(sentence)
+                    elif self.knowledge[i].cells > self.knowledge[j].cells:
+                        sentence = Sentence(self.knowledge[i].cells - self.knowledge[j].cells,
+                                            self.knowledge[i].count - self.knowledge[j].count)
+                        if sentence in self.knowledge:
+                            continue
+                        without_new_infer = False
+                        new_knowledge.append(sentence)
             self.knowledge.extend(new_knowledge)
             return without_new_infer
 
