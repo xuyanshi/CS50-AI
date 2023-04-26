@@ -190,7 +190,8 @@ class MinesweeperAI:
                if they can be inferred from existing knowledge
         """
         self.moves_made.add(cell)
-        self.safes.add(cell)
+        self.mark_safe(cell)
+
         sentence = Sentence(cell, count)
         raise NotImplementedError
 
@@ -213,9 +214,18 @@ class MinesweeperAI:
             1) have not already been chosen, and
             2) are not known to be mines
         """
-        i = random.randrange(self.height)
-        j = random.randrange(self.width)
-        while (i, j) in self.moves_made or (i, j) in self.mines:
-            i = random.randrange(self.height)
-            j = random.randrange(self.width)
-        return i, j
+        # i = random.randrange(self.height)
+        # j = random.randrange(self.width)
+        # while (i, j) in self.moves_made or (i, j) in self.mines:
+        #     i = random.randrange(self.height)
+        #     j = random.randrange(self.width)
+        # return i, j
+        possible_moves = set()
+        for i in range(self.height):
+            for j in range(self.width):
+                possible_moves.add((i, j))
+        possible_moves -= self.moves_made
+        possible_moves -= self.mines
+        if not possible_moves:
+            return None
+        return list(possible_moves)[0]
