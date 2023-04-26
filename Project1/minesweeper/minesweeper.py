@@ -237,7 +237,7 @@ class MinesweeperAI:
         def infer():
             without_new_infer = True
             new_knowledge = []
-
+            
             self.knowledge.extend(new_knowledge)
             return without_new_infer
 
