@@ -237,7 +237,10 @@ class MinesweeperAI:
         def infer():
             without_new_infer = True
             new_knowledge = []
-            
+            n = len(self.knowledge)
+            for i in range(n - 1):
+                for j in range(i + 1, n):
+                    pass
             self.knowledge.extend(new_knowledge)
             return without_new_infer
 
