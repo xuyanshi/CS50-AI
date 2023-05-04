@@ -114,12 +114,12 @@ def iterate_pagerank(corpus, damping_factor):
     while changes:
         changes = False
         new_pagerank_dict = defaultdict(int)
-        for i in range(all_pages_cnt):
-            p = all_pages[i]
+        for idx in range(all_pages_cnt):
+            p = all_pages[idx]
             new_pagerank_dict[p] = (1 - damping_factor) * all_pages_cnt
-
-        for i in range(all_pages_cnt):
-            p = all_pages[i]
+            
+        for idx in range(all_pages_cnt):
+            p = all_pages[idx]
             if abs(pagerank_dict[p] - new_pagerank_dict[p]) > 0.001:
                 changes = True
                 break
