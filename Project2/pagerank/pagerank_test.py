@@ -13,4 +13,15 @@ def transition_model_test():
 
     print(transition_model(corpus, page, damping_factor))
 
+
 # transition_model_test()
+
+def sample_pagerank_test():
+    corpus = {"1.html": {"2.html", "3.html"}, "2.html": {"3.html"}, "3.html": {"2.html"}}
+    damping_factor = 0.85
+    n = 1
+
+    print(sample_pagerank(corpus, damping_factor, n))
+
+
+sample_pagerank_test()
