@@ -56,7 +56,7 @@ def transition_model(corpus, page, damping_factor):
     """
     next_pages = {}
     link_pages = len(corpus[page])
-    all_pages = len(corpus.keys())  # n
+    all_pages = len(corpus.keys())
     for p in corpus.keys():
         if p in corpus[page]:
             next_pages[p] = damping_factor / link_pages + (1 - damping_factor) / all_pages
@@ -75,8 +75,9 @@ def sample_pagerank(corpus, damping_factor, n):
     PageRank values should sum to 1.
     """
     pagerank_dict = {}
+    all_pages = len(corpus.keys())
     for p in corpus.keys():
-        pagerank_dict[p] = 1 / n
+        pagerank_dict[p] = 1 / all_pages
     return pagerank_dict
 
 
