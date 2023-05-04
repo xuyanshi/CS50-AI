@@ -107,10 +107,8 @@ def iterate_pagerank(corpus, damping_factor):
     pagerank_dict = {}
     all_pages = list(corpus.keys())
     all_pages_cnt = len(corpus.keys())
-    transitions = []
     for p in all_pages:
         pagerank_dict[p] = 1 / all_pages_cnt
-        transitions.append(transition_model(corpus, p, damping_factor))
 
     changes = True
     while changes:
@@ -118,14 +116,14 @@ def iterate_pagerank(corpus, damping_factor):
         new_pagerank_dict = defaultdict(int)
         for i in range(all_pages_cnt):
             p = all_pages[i]
-            this_page_probability = pagerank_dict[p]
-            for link in transitions[i].keys():
-                new_pagerank_dict[link] += this_page_probability * transitions[i][link]
+            new_pagerank_dict[p] = (1 - damping_factor) * all_pages_cnt
+
         for i in range(all_pages_cnt):
             p = all_pages[i]
             if abs(pagerank_dict[p] - new_pagerank_dict[p]) > 0.001:
                 changes = True
                 break
+
         pagerank_dict = dict(new_pagerank_dict)
 
     return pagerank_dict
