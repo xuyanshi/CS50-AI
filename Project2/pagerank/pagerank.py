@@ -85,7 +85,7 @@ def sample_pagerank(corpus, damping_factor, n):
 
     for _ in range(n - 1):
         new_pagerank_dict = defaultdict(int)
-        for i in range(len(all_pages)):
+        for i in range(all_pages_cnt):
             p = all_pages[i]
             this_page_probability = pagerank_dict[p]
             for link in transitions[i].keys():
