@@ -55,12 +55,13 @@ def transition_model(corpus, page, damping_factor):
     a link at random chosen from all pages in the corpus.
     """
     next_pages = {}
-    n = len(corpus[page])
-    if n > 0:
-        for p in corpus.keys():
-            if p in corpus[page]:
-                next_pages[p] = damping_factor / n
-    
+    link_pages = len(corpus[page])
+    all_pages = len(corpus.keys())
+    for p in corpus.keys():
+        if p in corpus[page]:
+            next_pages[p] = damping_factor / link_pages + (1 - damping_factor) / all_pages
+        else:
+            next_pages[p] = (1 - damping_factor) / all_pages
     return next_pages
 
 
