@@ -57,12 +57,12 @@ def transition_model(corpus, page, damping_factor):
     """
     next_pages = {}
     link_pages = len(corpus[page])
-    all_pages = len(corpus.keys())
+    all_pages_cnt = len(corpus.keys())
     for p in corpus.keys():
         if p in corpus[page]:
-            next_pages[p] = damping_factor / link_pages + (1 - damping_factor) / all_pages
+            next_pages[p] = damping_factor / link_pages + (1 - damping_factor) / all_pages_cnt
         else:
-            next_pages[p] = (1 - damping_factor) / all_pages
+            next_pages[p] = (1 - damping_factor) / all_pages_cnt
     return next_pages
 
 
@@ -76,14 +76,21 @@ def sample_pagerank(corpus, damping_factor, n):
     PageRank values should sum to 1.
     """
     pagerank_dict = {}
-    all_pages = len(corpus.keys())
-    for p in corpus.keys():
-        pagerank_dict[p] = 1 / all_pages
+    all_pages = list(corpus.keys())
+    all_pages_cnt = len(corpus.keys())
+    transitions = []
+    for p in all_pages:
+        pagerank_dict[p] = 1 / all_pages_cnt
+        transitions.append(transition_model(corpus, p, damping_factor))
+
     for _ in range(n - 1):
         new_pagerank_dict = defaultdict(int)
-        for p in corpus.keys():
-            transition = transition_model(corpus, p, damping_factor)
-            
+        for i in range(len(all_pages)):
+            p = all_pages[i]
+            this_page_probability = pagerank_dict[p]
+            for link in transitions[i].keys():
+                new_pagerank_dict[link] += this_page_probability * transitions[i][link]
+
         pagerank_dict = new_pagerank_dict
     return pagerank_dict
 
