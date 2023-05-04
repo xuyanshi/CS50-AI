@@ -104,8 +104,31 @@ def iterate_pagerank(corpus, damping_factor):
     their estimated PageRank value (a value between 0 and 1). All
     PageRank values should sum to 1.
     """
+    pagerank_dict = {}
+    all_pages = list(corpus.keys())
+    all_pages_cnt = len(corpus.keys())
+    transitions = []
+    for p in all_pages:
+        pagerank_dict[p] = 1 / all_pages_cnt
+        transitions.append(transition_model(corpus, p, damping_factor))
 
-    raise NotImplementedError
+    changes = True
+    while changes:
+        changes = False
+        new_pagerank_dict = defaultdict(int)
+        for i in range(all_pages_cnt):
+            p = all_pages[i]
+            this_page_probability = pagerank_dict[p]
+            for link in transitions[i].keys():
+                new_pagerank_dict[link] += this_page_probability * transitions[i][link]
+        for i in range(all_pages_cnt):
+            p = all_pages[i]
+            if abs(pagerank_dict[p] - new_pagerank_dict[p]) > 0.001:
+                changes = True
+                break
+        pagerank_dict = dict(new_pagerank_dict)
+
+    return pagerank_dict
 
 
 if __name__ == "__main__":
