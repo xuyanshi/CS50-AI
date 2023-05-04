@@ -75,7 +75,8 @@ def sample_pagerank(corpus, damping_factor, n):
     PageRank values should sum to 1.
     """
     pagerank_dict = {}
-    
+    for p in corpus.keys():
+        pagerank_dict[p] = 1 / n
     return pagerank_dict
 
 
