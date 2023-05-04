@@ -81,7 +81,9 @@ def sample_pagerank(corpus, damping_factor, n):
         pagerank_dict[p] = 1 / all_pages
     for _ in range(n - 1):
         new_pagerank_dict = defaultdict(int)
-        
+        for p in corpus.keys():
+            transition = transition_model(corpus, p, damping_factor)
+            
         pagerank_dict = new_pagerank_dict
     return pagerank_dict
 
