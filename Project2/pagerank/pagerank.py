@@ -2,6 +2,7 @@ import os
 import random
 import re
 import sys
+from collections import defaultdict
 
 DAMPING = 0.85
 SAMPLES = 10000
@@ -78,6 +79,10 @@ def sample_pagerank(corpus, damping_factor, n):
     all_pages = len(corpus.keys())
     for p in corpus.keys():
         pagerank_dict[p] = 1 / all_pages
+    for _ in range(n - 1):
+        new_pagerank_dict = defaultdict(int)
+        
+        pagerank_dict = new_pagerank_dict
     return pagerank_dict
 
 
