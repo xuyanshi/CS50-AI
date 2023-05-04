@@ -13,5 +13,4 @@ def transition_model_test():
 
     print(transition_model(corpus, page, damping_factor))
 
-
-transition_model_test()
+# transition_model_test()
