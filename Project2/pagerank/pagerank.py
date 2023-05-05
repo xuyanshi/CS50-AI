@@ -66,6 +66,7 @@ def transition_model(corpus, page, damping_factor):
     return next_pages
 
 
+# Have a bug in sampling of corpus2
 def sample_pagerank(corpus, damping_factor, n):
     """
     Return PageRank values for each page by sampling `n` pages
