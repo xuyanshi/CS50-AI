@@ -166,6 +166,7 @@ def normalize(probabilities):
         probabilities[person]["gene"][0] /= genes
         probabilities[person]["trait"][True] /= traits
         probabilities[person]["trait"][False] /= traits
+        
     return probabilities
 
 
