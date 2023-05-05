@@ -38,7 +38,6 @@ PROBS = {
 
 
 def main():
-
     # Check for proper usage
     if len(sys.argv) != 2:
         sys.exit("Usage: python heredity.py data.csv")
@@ -76,7 +75,6 @@ def main():
         # Loop over all sets of people who might have the gene
         for one_gene in powerset(names):
             for two_genes in powerset(names - one_gene):
-
                 # Update probabilities with new joint probability
                 p = joint_probability(people, one_gene, two_genes, have_trait)
                 update(probabilities, one_gene, two_genes, have_trait, p)
@@ -101,7 +99,7 @@ def load_data(filename):
     mother, father must both be blank, or both be valid names in the CSV.
     trait should be 0 or 1 if trait is known, blank otherwise.
     """
-    data = dict()
+    data = {}
     with open(filename) as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -158,6 +156,7 @@ def normalize(probabilities):
     is normalized (i.e., sums to 1, with relative proportions the same).
     """
     raise NotImplementedError
+    return probabilities
 
 
 if __name__ == "__main__":
