@@ -116,7 +116,7 @@ def iterate_pagerank(corpus, damping_factor):
         new_pagerank_dict = defaultdict(int)
         for idx in range(all_pages_cnt):
             p = all_pages[idx]
-            new_pagerank_dict[p] = (1 - damping_factor) * all_pages_cnt
+            new_pagerank_dict[p] = (1 - damping_factor) / all_pages_cnt
             for link in all_pages:
                 if p in corpus[link]:
                     new_pagerank_dict[p] += damping_factor * pagerank_dict[link] / len(corpus[link])
