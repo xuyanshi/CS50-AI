@@ -137,7 +137,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone in set `have_trait` has the trait, and
         * everyone not in set` have_trait` does not have the trait.
     """
-    
+
     raise NotImplementedError
 
 
@@ -156,7 +156,16 @@ def normalize(probabilities):
     Update `probabilities` such that each probability distribution
     is normalized (i.e., sums to 1, with relative proportions the same).
     """
-    raise NotImplementedError
+    for person in probabilities:
+        genes = probabilities[person]["gene"][2] + probabilities[person]["gene"][1] + probabilities[person]["gene"][0]
+        traits = probabilities[person]["trait"][True] + probabilities[person]["trait"][False]
+        if genes == 0 or traits == 0:
+            break
+        probabilities[person]["gene"][2] /= genes
+        probabilities[person]["gene"][1] /= genes
+        probabilities[person]["gene"][0] /= genes
+        probabilities[person]["trait"][True] /= traits
+        probabilities[person]["trait"][False] /= traits
     return probabilities
 
 
