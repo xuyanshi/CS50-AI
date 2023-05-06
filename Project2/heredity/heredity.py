@@ -139,7 +139,13 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     """
     joint_p = 1.0
     for name in people:
-        pass
+        attribute = people[name]
+        if name in one_gene:
+            pass
+        elif name in two_genes:
+            pass
+        else:  # zero gene
+            pass
     return joint_p
 
 
