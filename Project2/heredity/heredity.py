@@ -150,6 +150,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                 this_p *= PROBS["gene"][1]
             else:
                 pass
+
         elif name in two_genes:
             if name in have_trait:
                 this_p = PROBS["trait"][2][True]
@@ -159,6 +160,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                 this_p *= PROBS["gene"][2]
             else:
                 pass
+
         else:  # zero gene
             if name in have_trait:
                 this_p = PROBS["trait"][0][True]
@@ -168,6 +170,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
                 this_p *= PROBS["gene"][0]
             else:
                 pass
+            
         joint_p *= this_p
     return joint_p
 
