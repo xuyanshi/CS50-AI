@@ -139,6 +139,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     """
 
     def get_gene_from_parents_probability(child):
+        father = people[child]["father"]
+        mother = people[child]["mother"]
         if child in two_genes:
             pass
         elif child in one_gene:
