@@ -7,6 +7,7 @@ def joint_probability_test():
         'James': {'name': 'James', 'mother': None, 'father': None, 'trait': True},
         'Lily': {'name': 'Lily', 'mother': None, 'father': None, 'trait': False}
     }
-    
+    print(joint_probability(people, {"Harry"}, {"James"}, {"James"}))
 
-print(joint_probability_test())
+
+joint_probability_test()
