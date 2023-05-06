@@ -13,10 +13,10 @@ The [Online Judge](https://cs50.me/cs50ai) will take about 3 weeks to evaluate o
 
   - [x] [Knights](https://cs50.harvard.edu/ai/2020/projects/1/knights/)
   - [x] [Minesweeper](https://cs50.harvard.edu/ai/2020/projects/1/minesweeper/)
-- [ ] [Project2](https://cs50.harvard.edu/ai/2020/projects/2/)
+- [x] [Project2](https://cs50.harvard.edu/ai/2020/projects/2/)
 
   - [x] [PageRank](https://cs50.harvard.edu/ai/2020/projects/2/pagerank/)
-  - [ ] [Heredity](https://cs50.harvard.edu/ai/2020/projects/2/heredity/)
+  - [x] [Heredity](https://cs50.harvard.edu/ai/2020/projects/2/heredity/)
 - [ ] [Project3](https://cs50.harvard.edu/ai/2020/projects/3/)
 
   - [ ] [Crossword](https://cs50.harvard.edu/ai/2020/projects/3/crossword/)
