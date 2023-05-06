@@ -143,7 +143,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         if parent in two_genes:
             return [PROBS["mutation"], 1 - PROBS["mutation"]]
         elif parent in one_gene:
-            return [0.0, 1.0]
+            return [0.5, 0.5]
         else:  # zero gene
             return [1 - PROBS["mutation"], PROBS["mutation"]]
 
