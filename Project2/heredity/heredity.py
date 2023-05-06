@@ -140,7 +140,12 @@ def joint_probability(people, one_gene, two_genes, have_trait):
 
     def parent_probability(parent):
         # return [False_probability, True_probability]
-        return [0.0, 1.0]
+        if parent in two_genes:
+            return [PROBS["mutation"], 1 - PROBS["mutation"]]
+        elif parent in one_gene:
+            return [0.0, 1.0]
+        else:  # zero gene
+            return [1 - PROBS["mutation"], PROBS["mutation"]]
 
     def get_gene_from_parents_probability(child):
         father = people[child]["father"]
@@ -150,7 +155,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         elif child in one_gene:
             return parent_probability(father)[1] * parent_probability(mother)[0] + \
                 parent_probability(father)[0] * parent_probability(mother)[1]
-        else:
+        else:  # zero gene
             return parent_probability(father)[0] * parent_probability(mother)[0]
 
     joint_p = 1.0
