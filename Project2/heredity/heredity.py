@@ -137,6 +137,15 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone in set `have_trait` has the trait, and
         * everyone not in set` have_trait` does not have the trait.
     """
+
+    def get_gene_from_parents_probability(child):
+        if child in two_genes:
+            pass
+        elif child in one_gene:
+            pass
+        else:
+            pass
+
     joint_p = 1.0
     for name in people:
         attribute = people[name]
@@ -149,7 +158,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
             if attribute["mother"] is None or attribute["father"] is None:
                 this_p *= PROBS["gene"][1]
             else:
-                pass
+                this_p *= get_gene_from_parents_probability(name)
 
         elif name in two_genes:
             if name in have_trait:
@@ -159,7 +168,7 @@ def joint_probability(people, one_gene, two_genes, have_trait):
             if attribute["mother"] is None or attribute["father"] is None:
                 this_p *= PROBS["gene"][2]
             else:
-                pass
+                this_p *= get_gene_from_parents_probability(name)
 
         else:  # zero gene
             if name in have_trait:
@@ -169,8 +178,8 @@ def joint_probability(people, one_gene, two_genes, have_trait):
             if attribute["mother"] is None or attribute["father"] is None:
                 this_p *= PROBS["gene"][0]
             else:
-                pass
-            
+                this_p *= get_gene_from_parents_probability(name)
+
         joint_p *= this_p
     return joint_p
 
