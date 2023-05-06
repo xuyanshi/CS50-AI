@@ -138,15 +138,20 @@ def joint_probability(people, one_gene, two_genes, have_trait):
         * everyone not in set` have_trait` does not have the trait.
     """
 
+    def parent_probability(parent):
+        # return [False_probability, True_probability]
+        return [0.0, 1.0]
+
     def get_gene_from_parents_probability(child):
         father = people[child]["father"]
         mother = people[child]["mother"]
         if child in two_genes:
-            pass
+            return parent_probability(father)[1] * parent_probability(mother)[1]
         elif child in one_gene:
-            pass
+            return parent_probability(father)[1] * parent_probability(mother)[0] + \
+                parent_probability(father)[0] * parent_probability(mother)[1]
         else:
-            pass
+            return parent_probability(father)[0] * parent_probability(mother)[0]
 
     joint_p = 1.0
     for name in people:
