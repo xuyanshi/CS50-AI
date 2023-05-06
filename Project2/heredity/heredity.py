@@ -140,12 +140,20 @@ def joint_probability(people, one_gene, two_genes, have_trait):
     joint_p = 1.0
     for name in people:
         attribute = people[name]
+        this_p = 0
         if name in one_gene:
             pass
         elif name in two_genes:
-            pass
+            if name in have_trait:
+                this_p = PROBS["gene"][2] * PROBS["trait"][2][True]
+            else:
+                this_p = PROBS["gene"][2] * PROBS["trait"][2][False]
         else:  # zero gene
-            pass
+            if name in have_trait:
+                this_p = PROBS["gene"][0] * PROBS["trait"][0][True]
+            else:
+                this_p = PROBS["gene"][0] * PROBS["trait"][0][False]
+        joint_p *= this_p
     return joint_p
 
 
