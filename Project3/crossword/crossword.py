@@ -1,5 +1,4 @@
 class Variable():
-
     ACROSS = "across"
     DOWN = "down"
 
@@ -21,10 +20,10 @@ class Variable():
 
     def __eq__(self, other):
         return (
-            (self.i == other.i) and
-            (self.j == other.j) and
-            (self.direction == other.direction) and
-            (self.length == other.length)
+                (self.i == other.i) and
+                (self.j == other.j) and
+                (self.direction == other.direction) and
+                (self.length == other.length)
         )
 
     def __str__(self):
@@ -38,7 +37,6 @@ class Variable():
 class Crossword():
 
     def __init__(self, structure_file, words_file):
-
         # Determine structure of crossword
         with open(structure_file) as f:
             contents = f.read().splitlines()
@@ -49,12 +47,10 @@ class Crossword():
             for i in range(self.height):
                 row = []
                 for j in range(self.width):
-                    if j >= len(contents[i]):
+                    if j >= len(contents[i]) or contents[i][j] != "_":
                         row.append(False)
-                    elif contents[i][j] == "_":
-                        row.append(True)
                     else:
-                        row.append(False)
+                        row.append(True)
                 self.structure.append(row)
 
         # Save vocabulary list
@@ -68,8 +64,8 @@ class Crossword():
 
                 # Vertical words
                 starts_word = (
-                    self.structure[i][j]
-                    and (i == 0 or not self.structure[i - 1][j])
+                        self.structure[i][j]
+                        and (i == 0 or not self.structure[i - 1][j])
                 )
                 if starts_word:
                     length = 1
@@ -87,8 +83,8 @@ class Crossword():
 
                 # Horizontal words
                 starts_word = (
-                    self.structure[i][j]
-                    and (j == 0 or not self.structure[i][j - 1])
+                        self.structure[i][j]
+                        and (j == 0 or not self.structure[i][j - 1])
                 )
                 if starts_word:
                     length = 1
