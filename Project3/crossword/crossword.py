@@ -34,7 +34,7 @@ class Variable:
         return f"Variable({self.i}, {self.j}, {direction}, {self.length})"
 
 
-class Crossword():
+class Crossword:
 
     def __init__(self, structure_file, words_file):
         # Determine structure of crossword
