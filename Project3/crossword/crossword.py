@@ -9,11 +9,13 @@ class Variable:
         self.direction = direction
         self.length = length
         self.cells = []
-        for k in range(self.length):
-            self.cells.append(
-                (self.i + (k if self.direction == Variable.DOWN else 0),
-                 self.j + (k if self.direction == Variable.ACROSS else 0))
+        self.cells.extend(
+            (
+                self.i + (k if self.direction == Variable.DOWN else 0),
+                self.j + (k if self.direction == Variable.ACROSS else 0),
             )
+            for k in range(self.length)
+        )
 
     def __hash__(self):
         return hash((self.i, self.j, self.direction, self.length))
