@@ -1,4 +1,4 @@
-class Variable():
+class Variable:
     ACROSS = "across"
     DOWN = "down"
 
