@@ -113,8 +113,20 @@ class CrosswordCreator:
         Return True if a revision was made to the domain of `x`; return
         False if no revision was made.
         """
+        revision = False
+        '''
+        The revise function should make the variable x arc consistent with the variable y. x and y will both be 
+        Variable objects representing variables in the puzzle. Recall that x is arc consistent with y when every 
+        value in the domain of x has a possible value in the domain of y that does not cause a conflict. (A conflict 
+        in the context of the crossword puzzle is a square for which two variables disagree on what character value 
+        it should take on.) To make x arc consistent with y, you’ll want to remove any value from the domain of x 
+        that does not have a corresponding possible value in the domain of y. Recall that you can access 
+        self.crossword.overlaps to get the overlap, if any, between two variables. The domain of y should be left 
+        unmodified. The function should return True if a revision was made to the domain of x; it should return False 
+        if no revision was made.
+        '''
         
-        raise NotImplementedError
+        return revision
 
     def ac3(self, arcs=None):
         """
