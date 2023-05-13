@@ -143,8 +143,17 @@ class CrosswordCreator:
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
         """
-        
-        raise NotImplementedError
+        qu = []
+        solvable = True
+        if arcs is None:
+            pass
+        else:
+            for arc in qu:
+                qu.append(arc)
+        while qu:
+            solvable = False
+
+        return solvable
 
     def assignment_complete(self, assignment):
         """
