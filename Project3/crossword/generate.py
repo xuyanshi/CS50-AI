@@ -178,7 +178,7 @@ class CrosswordCreator:
         crossword variable); return False otherwise.
         """
         for var in self.domains:
-            if var not in assignment or len(assignment[var]) != 1:
+            if var not in assignment:  # or len(assignment[var]) != 1:
                 return False
         return True
 
@@ -187,7 +187,18 @@ class CrosswordCreator:
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
         """
-        raise NotImplementedError
+        vals = assignment.values()
+        if len(set(vals)) != len(vals):
+            return False
+        for var in assignment:
+            if var.length != len(assignment[var]):
+                return False
+            for nbr in self.crossword.neighbors(var):
+                if nbr in assignment:
+                    idx_x, idx_y = self.crossword.overlaps[var, nbr]
+                    if assignment[var][idx_x] != assignment[nbr][idx_y]:
+                        return False
+        return True
 
     def order_domain_values(self, var, assignment):
         """
