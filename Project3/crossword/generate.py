@@ -127,7 +127,8 @@ class CrosswordCreator:
         '''
         for x in self.domains:
             removeFlag = True
-            
+            for y in self.domains[x]:
+                ...
             if removeFlag:
                 self.domains.pop(x)
         return revision
