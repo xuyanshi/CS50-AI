@@ -142,18 +142,33 @@ class CrosswordCreator:
 
         Return True if arc consistency is enforced and no domains are empty;
         return False if one or more domains end up empty.
+
+        function AC-3(csp):
+            queue = all arcs in csp
+            while queue non-empty:
+                (X, Y) = DEQUEUE(queue)
+                if REVISE(csp, X, Y):
+                    if size of X.domain == 0:
+                        return false
+                    for each Z in X.neighbors - {Y}:
+                        ENQUEUE(queue, (Z, X))
+            return true
         """
         qu = []
-        solvable = True
         if arcs is None:
             for x in self.domains:
                 qu.extend((x, y) for y in self.domains if x != y)
         else:
             qu.extend(arcs)
         while qu:
-            solvable = False
-
-        return solvable
+            x, y = qu.pop(0)
+            if self.revise(x, y):
+                if self.domains[x] is None or len(self.domains[x]) == 0:
+                    return False
+                for z in self.crossword.neighbors(x):
+                    if z != y:
+                        qu.append((z, x))
+        return True
 
     def assignment_complete(self, assignment):
         """
