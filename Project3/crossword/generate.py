@@ -146,9 +146,10 @@ class CrosswordCreator:
         qu = []
         solvable = True
         if arcs is None:
-            pass
+            for x in self.domains:
+                qu.extend((x, y) for y in self.domains if x != y)
         else:
-            for arc in qu:
+            for arc in arcs:
                 qu.append(arc)
         while qu:
             solvable = False
