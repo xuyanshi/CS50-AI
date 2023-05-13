@@ -125,12 +125,16 @@ class CrosswordCreator:
         unmodified. The function should return True if a revision was made to the domain of x; it should return False 
         if no revision was made.
         '''
-        for x in self.domains:
-            removeFlag = True
-            for y in self.domains[x]:
-                ...
-            if removeFlag:
-                self.domains.pop(x)
+        for word_x in self.domains[x]:
+            remove_flag = True
+            if self.crossword.overlaps[x, y] is not None:
+                idx_x, idx_y = self.crossword.overlaps[x, y]
+                for word_y in self.domains[y]:
+                    if word_x[idx_x] == word_y[idx_y]:
+                        remove_flag = False
+                if remove_flag:
+                    revision = True
+                    self.domains[x].remove(word_x)
         return revision
 
     def ac3(self, arcs=None):
