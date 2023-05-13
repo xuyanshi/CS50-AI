@@ -128,10 +128,7 @@ class CrosswordCreator:
         if self.crossword.overlaps[x, y] is not None:
             idx_x, idx_y = self.crossword.overlaps[x, y]
             for word_x in self.domains[x]:
-                remove_flag = True
-                for word_y in self.domains[y]:
-                    if word_x[idx_x] == word_y[idx_y]:
-                        remove_flag = False
+                remove_flag = all(word_x[idx_x] != word_y[idx_y] for word_y in self.domains[y])
                 if remove_flag:
                     revision = True
                     self.domains[x].remove(word_x)
