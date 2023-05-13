@@ -218,7 +218,7 @@ class CrosswordCreator:
         # the values are returned in the correct order.
         for val in self.domains[var]:
             vals.append((len(vals), val))  # initial order
-
+        # TODO: the least-constraining values heuristic
         vals.sort()  # sorting by order
         return [val[1] for val in vals]
 
@@ -235,6 +235,7 @@ class CrosswordCreator:
         # (which should still generate correct crossword puzzles).
         # Once your algorithm is working, you can then go back and ensure that
         # you are returning a variable according to the heuristics.
+        # TODO: the minimum remaining value heuristic and then the degree heuristic
         for var in self.domains:
             if var not in assignment:
                 selected_variable = var
