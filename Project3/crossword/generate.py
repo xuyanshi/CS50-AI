@@ -187,12 +187,16 @@ class CrosswordCreator:
         Return True if `assignment` is consistent (i.e., words fit in crossword
         puzzle without conflicting characters); return False otherwise.
         """
+        # all values are distinct
         vals = assignment.values()
         if len(set(vals)) != len(vals):
             return False
+
         for var in assignment:
+            # every value is the correct length
             if var.length != len(assignment[var]):
                 return False
+            # no conflicts between neighboring variables
             for nbr in self.crossword.neighbors(var):
                 if nbr in assignment:
                     idx_x, idx_y = self.crossword.overlaps[var, nbr]
