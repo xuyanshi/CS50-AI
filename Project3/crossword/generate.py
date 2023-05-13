@@ -212,7 +212,10 @@ class CrosswordCreator:
         that rules out the fewest values among the neighbors of `var`.
         """
         vals = []  # (rank, value)
-
+        # It may be helpful to first implement this function by returning a list of values in any arbitrary order
+        # (which should still generate correct crossword puzzles).
+        # Once your algorithm is working, you can then go back and ensure that
+        # the values are returned in the correct order.
         vals.sort()  # sorting by rank
         return [val[1] for val in vals]
 
