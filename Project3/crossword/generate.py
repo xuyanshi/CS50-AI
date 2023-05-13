@@ -100,7 +100,8 @@ class CrosswordCreator:
          constraints; in this case, the length of the word.)
         """
         for var in self.domains:
-            for word in self.domains[var]:
+            words = self.domains[var].copy()
+            for word in words:
                 if len(word) != var.length:
                     self.domains[var].remove(word)
 
@@ -127,7 +128,8 @@ class CrosswordCreator:
         '''
         if self.crossword.overlaps[x, y] is not None:
             idx_x, idx_y = self.crossword.overlaps[x, y]
-            for word_x in self.domains[x]:
+            x_words = self.domains[x].copy()
+            for word_x in x_words:
                 remove_flag = all(word_x[idx_x] != word_y[idx_y] for word_y in self.domains[y])
                 if remove_flag:
                     revision = True
