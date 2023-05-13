@@ -149,8 +149,7 @@ class CrosswordCreator:
             for x in self.domains:
                 qu.extend((x, y) for y in self.domains if x != y)
         else:
-            for arc in arcs:
-                qu.append(arc)
+            qu.extend(arcs)
         while qu:
             solvable = False
 
