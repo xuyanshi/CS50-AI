@@ -125,7 +125,11 @@ class CrosswordCreator:
         unmodified. The function should return True if a revision was made to the domain of x; it should return False 
         if no revision was made.
         '''
-        
+        for x in self.domains:
+            removeFlag = True
+            
+            if removeFlag:
+                self.domains.pop(x)
         return revision
 
     def ac3(self, arcs=None):
