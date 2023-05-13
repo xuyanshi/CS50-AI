@@ -230,11 +230,16 @@ class CrosswordCreator:
         degree. If there is a tie, any of the tied variables are acceptable
         return values.
         """
+        selected_variable = None
         # It may be helpful to first implement this function by returning any arbitrary unassigned variable
         # (which should still generate correct crossword puzzles).
         # Once your algorithm is working, you can then go back and ensure that
         # you are returning a variable according to the heuristics.
-        raise NotImplementedError
+        for var in self.domains:
+            if var not in assignment:
+                selected_variable = var
+                break
+        return selected_variable
 
     def backtrack(self, assignment):
         """
