@@ -218,7 +218,7 @@ class CrosswordCreator:
         # the values are returned in the correct order.
         for val in self.domains[var]:
             vals.append((len(vals), val))
-        
+
         vals.sort()  # sorting by order
         return [val[1] for val in vals]
 
@@ -230,6 +230,10 @@ class CrosswordCreator:
         degree. If there is a tie, any of the tied variables are acceptable
         return values.
         """
+        # It may be helpful to first implement this function by returning any arbitrary unassigned variable
+        # (which should still generate correct crossword puzzles).
+        # Once your algorithm is working, you can then go back and ensure that
+        # you are returning a variable according to the heuristics.
         raise NotImplementedError
 
     def backtrack(self, assignment):
