@@ -217,7 +217,7 @@ class CrosswordCreator:
         # Once your algorithm is working, you can then go back and ensure that
         # the values are returned in the correct order.
         for val in self.domains[var]:
-            vals.append((len(vals), val))
+            vals.append((len(vals), val))  # initial order
 
         vals.sort()  # sorting by order
         return [val[1] for val in vals]
