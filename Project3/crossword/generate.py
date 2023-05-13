@@ -216,6 +216,7 @@ class CrosswordCreator:
         # (which should still generate correct crossword puzzles).
         # Once your algorithm is working, you can then go back and ensure that
         # the values are returned in the correct order.
+        
         vals.sort()  # sorting by order
         return [val[1] for val in vals]
 
