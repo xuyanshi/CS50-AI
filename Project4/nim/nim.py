@@ -101,7 +101,7 @@ class NimAI():
         Return the Q-value for the state `state` and the action `action`.
         If no Q-value exists yet in `self.q`, return 0.
         """
-        return 0 if (state, action) not in self.q else self.q[state, action]
+        return 0 if (tuple(state), tuple(action)) not in self.q else self.q[tuple(state), tuple(action)]
 
     def update_q_value(self, state, action, old_q, reward, future_rewards):
         """
@@ -152,16 +152,18 @@ class NimAI():
         """
         actions = Nim.available_actions(state)
         if not actions:
-            return 0
+            return 0, 0
         chosen_action = list(actions)[0]
         max_q = self.get_q_value(state, chosen_action)
         for action in actions:
-            max_q = max(max_q, self.get_q_value(state, action))
+            if max_q < self.get_q_value(state, action):
+                max_q = self.get_q_value(state, action)
+                chosen_action = action
         dice = random.random()
         if epsilon and dice < self.epsilon:
             n = len(actions)
-            max_q = self.get_q_value(state, list(actions)[random.randint(0, n - 1)])
-        return max_q
+            chosen_action = list(actions)[random.randint(0, n - 1)]
+        return chosen_action
 
 
 def train(n):
