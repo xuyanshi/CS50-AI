@@ -133,7 +133,7 @@ class NimAI():
         best_reward = -10000
         for action in Nim.available_actions(state):
             best_reward = max(best_reward, self.get_q_value(state, action))
-        return 0 if best_reward == -10000 else 0
+        return 0 if best_reward == -10000 else best_reward
 
     def choose_action(self, state, epsilon=True):
         """
