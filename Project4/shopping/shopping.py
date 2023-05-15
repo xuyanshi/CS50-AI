@@ -92,7 +92,10 @@ def train_model(evidence, labels):
     fitted k-nearest neighbor model (k=1) trained on the data.
     """
     k = 1
-    
+    knc = KNeighborsClassifier(k)
+    knc.fit(evidence, labels)
+    return knc
+
 
 def evaluate(labels, predictions):
     """
