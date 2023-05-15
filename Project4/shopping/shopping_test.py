@@ -1,12 +1,6 @@
-import unittest
 from shopping import *
 
+data = load_data("shopping.csv")
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        # self.assertEqual(True, False)  # add assertion here
-        self.assertEqual(True, True)
-
-
-if __name__ == '__main__':
-    unittest.main()
+print(data[0][0])
+print(data[1][0])
