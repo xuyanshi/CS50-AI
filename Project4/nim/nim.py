@@ -21,7 +21,7 @@ class Nim():
     def available_actions(cls, piles):
         """
         Nim.available_actions(piles) takes a `piles` list as input
-        and returns all of the available actions `(i, j)` in that state.
+        and returns all the available actions `(i, j)` in that state.
 
         Action `(i, j)` represents the action of removing `j` items
         from pile `i` (where piles are 0-indexed).
