@@ -74,14 +74,14 @@ def load_data(filename):
             bounce, exit_rate = float(row[6]), float(row[7])
             page, special = float(row[8]), float(row[9])
             month = months[row[10]]
-            oper, brow, regi, traf = int(row[11]), int(row[12]), int(row[13]), int(row[14])
+            operating, brow, regi, traffic = int(row[11]), int(row[12]), int(row[13]), int(row[14])
             visitor = visitor_type[row[15]]
             wkd = weekend[row[16]]
             label = revenue[row[17]]
 
             evidence.append(
                 [admin, admin_duration, info, info_duration, product, product_duration, bounce, exit_rate, page,
-                 special, month, oper, brow, regi, traf, visitor, wkd])
+                 special, month, operating, brow, regi, traffic, visitor, wkd])
             labels.append(label)
     return evidence, labels
 
