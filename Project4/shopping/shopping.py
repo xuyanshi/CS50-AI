@@ -63,10 +63,25 @@ def load_data(filename):
     months = {'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'June': 5, 'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9,
               'Nov': 10, 'Dec': 11}
     visitor_type = {'Returning_Visitor': 1, 'New_Visitor': 0, 'Other': 0}
-    weekend = {'TRUE': 1, 'FALSE': 0}
+    weekend = revenue = {'TRUE': 1, 'FALSE': 0}
     with open(filename) as file:
         reader = csv.reader(file)
+        for row in reader:
+            admin, admin_duration = row[0], row[1]
+            info, info_duration = row[2], row[3]
+            product, product_duration = row[4], row[5]
+            bounce, exit_rate = row[6], row[7]
+            page, special = row[8], row[9]
+            month = months[row[10]]
+            oper, brow, regi, traf = row[11], row[12], row[13], row[14]
+            visitor = visitor_type[row[15]]
+            wkd = weekend[row[16]]
+            label = revenue[row[17]]
 
+            evidence.append(
+                [admin, admin_duration, info, info_duration, product, product_duration, bounce, exit_rate, page,
+                 special, month, oper, brow, regi, traf, visitor, wkd])
+            labels.append(label)
     return evidence, labels
 
 
