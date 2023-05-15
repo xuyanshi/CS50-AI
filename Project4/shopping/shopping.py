@@ -66,14 +66,15 @@ def load_data(filename):
     weekend = revenue = {'TRUE': 1, 'FALSE': 0}
     with open(filename) as file:
         reader = csv.reader(file)
+        next(reader)
         for row in reader:
-            admin, admin_duration = row[0], row[1]
-            info, info_duration = row[2], row[3]
-            product, product_duration = row[4], row[5]
-            bounce, exit_rate = row[6], row[7]
-            page, special = row[8], row[9]
+            admin, admin_duration = int(row[0]), float(row[1])
+            info, info_duration = int(row[2]), float(row[3])
+            product, product_duration = int(row[4]), float(row[5])
+            bounce, exit_rate = float(row[6]), float(row[7])
+            page, special = float(row[8]), float(row[9])
             month = months[row[10]]
-            oper, brow, regi, traf = row[11], row[12], row[13], row[14]
+            oper, brow, regi, traf = int(row[11]), int(row[12]), int(row[13]), int(row[14])
             visitor = visitor_type[row[15]]
             wkd = weekend[row[16]]
             label = revenue[row[17]]
