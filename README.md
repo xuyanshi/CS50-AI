@@ -22,7 +22,7 @@ The [Online Judge](https://cs50.me/cs50ai) will take about 3 weeks to evaluate o
   - [x] [Crossword](https://cs50.harvard.edu/ai/2020/projects/3/crossword/)
 - [ ] [Project4](https://cs50.harvard.edu/ai/2020/projects/4/)
 
-  - [ ] [Shopping](https://cs50.harvard.edu/ai/2020/projects/4/shopping/)
+  - [x] [Shopping](https://cs50.harvard.edu/ai/2020/projects/4/shopping/)
   - [ ] [Nim](https://cs50.harvard.edu/ai/2020/projects/4/nim/)
 - [ ] [Project5](https://cs50.harvard.edu/ai/2020/projects/5/)
 
