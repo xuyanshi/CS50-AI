@@ -59,7 +59,7 @@ def load_data(data_dir):
     """
     images = []
     labels = []
-
+    
     return images, labels
 
 
