@@ -76,7 +76,13 @@ def get_model():
     `input_shape` of the first layer is `(IMG_WIDTH, IMG_HEIGHT, 3)`.
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
-    model = None
+    model = tf.keras.models.Sequential([])
+
+    model.compile(
+        optimizer="adam",
+        loss="binary_crossentropy",
+        metrics=["accuracy"]
+    )
     return model
 
 
