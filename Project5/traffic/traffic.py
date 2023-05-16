@@ -59,7 +59,8 @@ def load_data(data_dir):
     """
     images = []
     labels = []
-    
+    for i in range(NUM_CATEGORIES):
+        ...
     return images, labels
 
 
