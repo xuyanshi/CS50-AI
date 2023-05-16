@@ -66,7 +66,7 @@ def load_data(data_dir):
             img = cv2.resize(img, dsize=(IMG_WIDTH, IMG_HEIGHT))
             images.append(img)
             labels.append(i)
-            
+
     return images, labels
 
 
@@ -76,7 +76,8 @@ def get_model():
     `input_shape` of the first layer is `(IMG_WIDTH, IMG_HEIGHT, 3)`.
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
-    raise NotImplementedError
+    model = None
+    return model
 
 
 if __name__ == "__main__":
