@@ -23,7 +23,6 @@ parser = nltk.ChartParser(grammar)
 
 
 def main():
-
     # If filename specified, read sentence from file
     if len(sys.argv) == 2:
         with open(sys.argv[1]) as f:
@@ -62,6 +61,7 @@ def preprocess(sentence):
     and removing any word that does not contain at least one alphabetic
     character.
     """
+    
     raise NotImplementedError
 
 
