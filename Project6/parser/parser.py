@@ -77,6 +77,32 @@ def preprocess(sentence):
     return ans
 
 
+def check(subtree):
+    """
+    Return True if any child of 'subtree' has the label "NP"
+    """
+
+    # if the subtree itself is an NP, then return True
+    if subtree.label() == "NP":
+        return True
+
+    # if the subtree has only one child, then its probably a terminal node
+    # in which case return False
+    # but the label must not be 'S' since
+    # S can contain only one child when S -> VP is followed by the parse tree
+    if len(subtree) == 1 and subtree.label() != 'S':
+        return False
+
+        # otherwise go further into the subtree
+    # and evaluate each subsubtree there
+    for subsubtree in subtree:
+
+        if check(subsubtree):
+            return True
+
+    return False
+
+
 def np_chunk(tree: nltk.tree.Tree):
     """
     Return a list of all noun phrase chunks in the sentence tree.
@@ -85,27 +111,29 @@ def np_chunk(tree: nltk.tree.Tree):
     noun phrases as subtrees.
     """
 
-    @cache
-    def findNP(np_tree: nltk.tree.Tree) -> List[nltk.tree.Tree]:
-        """
-        Find the minimum subtrees with 'NP' tag of one tree whose tag is 'NP'
-        """
-        np_lst = []
-        sub_np = False
-        for i in range(len(np_tree)):
-            sub_tree = np_tree[i]
-            if sub_tree and sub_tree.label() == 'NP':
-                sub_np = True
-                np_lst.extend(findNP(sub_tree))
-        if not sub_np:
-            np_lst.append(np_tree)
-        return np_lst
+    # @cache
+    # def findNP(np_tree: nltk.tree.Tree) -> List[nltk.tree.Tree]:
+    #     """
+    #     Find the minimum subtrees with 'NP' tag of one tree whose tag is 'NP'
+    #     """
+    #     np_lst = []
+    #     sub_np = False
+    #     for i in range(len(np_tree)):
+    #         sub_tree = np_tree[i]
+    #         if sub_tree and sub_tree.label() == 'NP':
+    #             sub_np = True
+    #             np_lst.extend(findNP(sub_tree))
+    #     if not sub_np:
+    #         np_lst.append(np_tree)
+    #     return np_lst
+    # ans = []
+    # for i in range(len(tree)):
+    #     sub_tree = tree[i]
+    #     if sub_tree and sub_tree.label() == 'NP':
+    #         ans.extend(findNP(sub_tree))
+    # return ans
 
     ans = []
-    for i in range(len(tree)):
-        sub_tree = tree[i]
-        if sub_tree and sub_tree.label() == 'NP':
-            ans.extend(findNP(sub_tree))
     return ans
 
 
