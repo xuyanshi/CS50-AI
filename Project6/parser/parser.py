@@ -86,11 +86,20 @@ def np_chunk(tree: nltk.tree.Tree):
     """
 
     @cache
-    def findNP(subTree: nltk.tree.Tree) -> List[nltk.tree.Tree]:
+    def findNP(np_tree: nltk.tree.Tree) -> List[nltk.tree.Tree]:
         """
         Find the minimum subtrees with 'NP' tag of one tree whose tag is 'NP'
         """
-        pass
+        np_lst = []
+        sub_np = False
+        for i in range(len(np_tree)):
+            sub_tree = np_tree[i]
+            if sub_tree and sub_tree.label() == 'NP':
+                sub_np = True
+                np_lst.extend(findNP(sub_tree))
+        if not sub_np:
+            np_lst.append(np_tree)
+        return np_lst
 
     ans = []
     for i in range(len(tree)):
