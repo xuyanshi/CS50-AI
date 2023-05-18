@@ -80,6 +80,7 @@ def preprocess(sentence):
 def check(subtree):
     """
     Return True if any child of 'subtree' has the label "NP"
+    ref: https://github.com/Rajil1213/cs50AI/blob/master/Week6/parser/parser.py
     """
 
     # if the subtree itself is an NP, then return True
@@ -133,8 +134,34 @@ def np_chunk(tree: nltk.tree.Tree):
     #         ans.extend(findNP(sub_tree))
     # return ans
 
-    ans = []
-    return ans
+    chunks = []
+    contains = False
+    for subtree in tree:
+
+        # get the label of the subtree defined by the grammar
+        node = subtree.label()
+
+        # check if this tree contains a subtree with 'NP'
+        # if not check another subtree
+        contains = check(subtree)
+        if not contains:
+            continue
+
+        # if the node is a NP or VP or S, then
+        # go further into the tree to check for noun phrase chunks
+        # at each point take the list of trees returned and
+        # append each to the actual chunks' list in the parent
+        if node == "NP" or node == "VP" or node == "S":
+            subsubtree = np_chunk(subtree)
+            for np in subsubtree:
+                chunks.append(np)
+
+    # if the current tree has no subtree with a 'NP' label
+    # and is itself an 'NP' labeled node then, append the tree to chunks
+    if tree.label() == "NP" and not contains:
+        chunks.append(tree)
+
+    return chunks
 
 
 if __name__ == "__main__":
