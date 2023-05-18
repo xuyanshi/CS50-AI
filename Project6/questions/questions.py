@@ -132,7 +132,24 @@ def top_sentences(query, sentences, idfs, n):
     the query, ranked according to idf. If there are ties, preference should
     be given to sentences that have a higher query term density.
     """
-    raise NotImplementedError
+    sentence_idf = dict()
+    for w in query:
+        for s in sentences:
+            if w in sentences[s]:
+                if s not in sentence_idf:
+                    sentence_idf[s] = {w}
+                else:
+                    sentence_idf[s].add(w)
+
+    for s in sentence_idf:
+        words = sentence_idf[s]
+        sentence_idf[s] = 0.0
+        for w in words:
+            sentence_idf[s] += idfs[w]
+
+    ans = list(sentence_idf.keys())
+    ans.sort(key=lambda file: sentence_idf[file])
+    return ans if len(ans) < n else ans[:n]
 
 
 if __name__ == "__main__":
