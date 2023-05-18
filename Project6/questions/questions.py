@@ -83,8 +83,9 @@ def compute_idfs(documents):
     Any word that appears in at least one of the documents should be in the
     resulting dictionary.
     """
+    idf_dict = dict()
     
-    raise NotImplementedError
+    return idf_dict
 
 
 def top_files(query, files, idfs, n):
