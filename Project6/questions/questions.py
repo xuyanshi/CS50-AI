@@ -2,6 +2,7 @@ import os
 
 import nltk
 import sys
+import string
 
 FILE_MATCHES = 1
 SENTENCE_MATCHES = 1
@@ -60,10 +61,12 @@ def tokenize(document):
     Given a document (represented as a string), return a list of all of the
     words in that document, in order.
 
-    Process document by coverting all words to lowercase, and removing any
+    Process document by converting all words to lowercase, and removing any
     punctuation or English stopwords.
     """
-    raise NotImplementedError
+    words = []
+    document = document.strip().lower()
+    return words
 
 
 def compute_idfs(documents):
