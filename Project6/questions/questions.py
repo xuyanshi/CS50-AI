@@ -120,7 +120,8 @@ def top_files(query, files, idfs, n):
             filenames[f] += idfs[w]
 
     ans = list(filenames.keys())
-    ans.sort(key=lambda file: filenames[file])
+    # TODO: I'm not sure whether it should be reversed or not.
+    ans.sort(key=lambda file: filenames[file], reverse=True)
     return ans if len(ans) < n else ans[:n]
 
 
@@ -146,9 +147,11 @@ def top_sentences(query, sentences, idfs, n):
         sentence_idf[s] = 0.0
         for w in words:
             sentence_idf[s] += idfs[w]
-
+        # 1 / query term density
+        # TODO: Fix bug of sorting.
+        sentence_idf[s] = (sentence_idf[s], len(words) / len(s))
     ans = list(sentence_idf.keys())
-    ans.sort(key=lambda file: sentence_idf[file])
+    ans.sort(key=lambda file: sentence_idf[file], reverse=True)
     return ans if len(ans) < n else ans[:n]
 
 
