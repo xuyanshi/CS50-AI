@@ -85,9 +85,11 @@ def compute_idfs(documents):
     """
     idf_dict = dict()
     for filename in documents:
-        idf_lst = []
-        
-        idf_dict[filename] = idf_lst
+        for w in documents[filename]:
+            if w not in idf_dict:
+                idf_dict[w] = 1
+            else:
+                idf_dict[w] += 1
     return idf_dict
 
 
