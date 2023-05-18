@@ -88,7 +88,7 @@ def np_chunk(tree: nltk.tree.Tree):
     @cache
     def findNP(subTree: nltk.tree.Tree) -> List[nltk.tree.Tree]:
         """
-        find the minimum subtrees with 'NP' tag of one tree whose tag is 'NP'
+        Find the minimum subtrees with 'NP' tag of one tree whose tag is 'NP'
         """
         pass
 
