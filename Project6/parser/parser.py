@@ -62,12 +62,13 @@ def preprocess(sentence):
     and removing any word that does not contain at least one alphabetic
     character.
     """
-    sentence = sentence.lower()
     sentence = nltk.tokenize.word_tokenize(sentence)
     ans = []
     for word in sentence:
-        # check 
-        ans.append(word)
+        word = word.lower()
+        contains_alphabet = any(ch.isalpha() for ch in word)
+        if contains_alphabet:
+            ans.append(word)
     return ans
 
 
