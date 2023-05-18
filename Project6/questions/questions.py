@@ -1,3 +1,4 @@
+import math
 import os
 
 import nltk
@@ -90,8 +91,9 @@ def compute_idfs(documents):
                 idf_dict[w] = set(filename)
             else:
                 idf_dict[w].add(filename)
+    n = len(documents)
     for w in idf_dict:
-
+        idf_dict[w] = math.log(n / len(idf_dict[w]))
     return idf_dict
 
 
