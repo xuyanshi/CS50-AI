@@ -35,7 +35,7 @@ def main():
 
     # Convert input into list of words
     s = preprocess(s)
-    
+
     # Attempt to parse sentence
     try:
         trees = list(parser.parse(s))
@@ -62,8 +62,13 @@ def preprocess(sentence):
     and removing any word that does not contain at least one alphabetic
     character.
     """
-
-    raise NotImplementedError
+    sentence = sentence.lower()
+    sentence = nltk.tokenize.word_tokenize(sentence)
+    ans = []
+    for word in sentence:
+        # check 
+        ans.append(word)
+    return ans
 
 
 def np_chunk(tree):
