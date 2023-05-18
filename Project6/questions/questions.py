@@ -46,7 +46,7 @@ def load_files(directory):
     Given a directory name, return a dictionary mapping the filename of each
     `.txt` file inside that directory to the file's contents as a string.
     """
-
+    
     raise NotImplementedError
 
 
