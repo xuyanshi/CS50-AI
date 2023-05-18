@@ -84,7 +84,10 @@ def compute_idfs(documents):
     resulting dictionary.
     """
     idf_dict = dict()
-    
+    for filename in documents:
+        idf_lst = []
+        
+        idf_dict[filename] = idf_lst
     return idf_dict
 
 
