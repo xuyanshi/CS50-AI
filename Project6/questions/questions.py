@@ -6,7 +6,6 @@ SENTENCE_MATCHES = 1
 
 
 def main():
-
     # Check command-line arguments
     if len(sys.argv) != 2:
         sys.exit("Usage: python questions.py corpus")
@@ -48,6 +47,7 @@ def load_files(directory):
     Given a directory name, return a dictionary mapping the filename of each
     `.txt` file inside that directory to the file's contents as a string.
     """
+    
     raise NotImplementedError
 
 
