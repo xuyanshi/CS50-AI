@@ -29,8 +29,7 @@ def main():
     for filename in filenames:
         for passage in files[filename].split("\n"):
             for sentence in nltk.sent_tokenize(passage):
-                tokens = tokenize(sentence)
-                if tokens:
+                if tokens := tokenize(sentence):
                     sentences[sentence] = tokens
 
     # Compute IDF values across sentences
@@ -47,7 +46,7 @@ def load_files(directory):
     Given a directory name, return a dictionary mapping the filename of each
     `.txt` file inside that directory to the file's contents as a string.
     """
-    
+
     raise NotImplementedError
 
 
