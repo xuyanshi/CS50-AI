@@ -1,3 +1,6 @@
+from functools import cache
+from typing import List
+
 import nltk
 import sys
 
@@ -74,15 +77,26 @@ def preprocess(sentence):
     return ans
 
 
-def np_chunk(tree):
+def np_chunk(tree: nltk.tree.Tree):
     """
     Return a list of all noun phrase chunks in the sentence tree.
     A noun phrase chunk is defined as any subtree of the sentence
     whose label is "NP" that does not itself contain any other
     noun phrases as subtrees.
     """
-    ans = []
 
+    @cache
+    def findNP(subTree: nltk.tree.Tree) -> List[nltk.tree.Tree]:
+        """
+        find the minimum subtrees with 'NP' tag of one tree whose tag is 'NP'
+        """
+        pass
+
+    ans = []
+    for i in range(len(tree)):
+        sub_tree = tree[i]
+        if sub_tree and sub_tree.label() == 'NP':
+            ans.extend(findNP(sub_tree))
     return ans
 
 
