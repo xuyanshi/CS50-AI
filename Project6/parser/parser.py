@@ -35,7 +35,7 @@ def main():
 
     # Convert input into list of words
     s = preprocess(s)
-
+    
     # Attempt to parse sentence
     try:
         trees = list(parser.parse(s))
