@@ -27,10 +27,10 @@ The [Online Judge](https://cs50.me/cs50ai) will take about 3 weeks to evaluate o
 - [x] [Project5](https://cs50.harvard.edu/ai/2020/projects/5/)
 
   - [x] [Traffic](https://cs50.harvard.edu/ai/2020/projects/5/traffic/)
-- [ ] [Project6](https://cs50.harvard.edu/ai/2020/projects/6/)
+- [x] [Project6](https://cs50.harvard.edu/ai/2020/projects/6/)
 
   - [x] [Parser](https://cs50.harvard.edu/ai/2020/projects/6/parser/)
-  - [ ] [Questions](https://cs50.harvard.edu/ai/2020/projects/6/questions/)
+  - [x] [Questions](https://cs50.harvard.edu/ai/2020/projects/6/questions/)
   
 ---
 
