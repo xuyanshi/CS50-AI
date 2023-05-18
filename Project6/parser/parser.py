@@ -15,8 +15,10 @@ V -> "smiled" | "tell" | "were"
 """
 
 NONTERMINALS = """
-S -> N V
-NP -> N | Det N
+S -> NP VP | NP VP Conj VP | NP VP Conj S | NP Adv VP
+NP -> N | Det NP | N PP | Det NP PP | Adj NP 
+VP -> V | V Adv | V PP | V NP | V NP Adv | V NP PP
+PP -> P NP | Conj S
 """
 
 grammar = nltk.CFG.fromstring(NONTERMINALS + TERMINALS)
@@ -80,7 +82,7 @@ def np_chunk(tree):
     noun phrases as subtrees.
     """
     ans = []
-    
+
     return ans
 
 
